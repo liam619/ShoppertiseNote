@@ -1,0 +1,56 @@
+db = db.getSiblingDb('shoppertise_notes');
+
+db.createCollection('user', {
+	validator: {
+		$jsonSchema: {
+			bsonType: 'object',
+			required: ['username', 'password'],
+			properties: {
+				username: {
+					bsonType: 'string',
+					description: 'must be a string and is required'
+				},
+				password: {
+					bsonType: 'string',
+					description: 'must be a string and is required'
+				}
+			}
+		}		
+	}
+});
+
+db.createCollection('note', {
+	validator: {
+		$jsonSchema: {
+			bsonType: 'object',
+			required: ['title', 'tags'],
+			properties: {
+				title: {
+					bsonType: 'string',
+					description: 'must be a string and is required'
+				},
+				content: {
+					bsonType: 'string',
+					description: 'must be a string'
+				},
+				tags: {
+					bsonType: ['array'],
+					minItems: 1,
+					items: {
+						bsonType: 'string'
+					},
+					description: 'must be an array of string'
+				},
+				createdDate: {
+					bsonType: 'date'
+				},
+				updatedDate: {
+					bsonType: 'date'
+				}
+			}
+		}
+	}
+});
+
+mongoimport --db shoppertise_notes --collection user < user.json
+mongoimport --db shoppertise_notes --collection note < note.json
