@@ -33,7 +33,7 @@ http://localhost:8080/swagger-ui/
 |POST|Create|/shoppertise/addNote| passing json object (refer below)|Create new note|Required|
 |GET|Read|/shoppertise/getAllNotesByGroup|passing **sortBy** [asc or desc]|Fetch note group by tags|Required|
 |GET|Read|/shoppertise/getAllNotesByPage|passing **page** [number] and **sortBy** [title, content or tags]|Fetch note by page|Required|
-|PUT|UPDATE|/shoppertise/note/{title}|passing the **title** in a string format|Update note such as title, content or tags|Required|
+|PUT|Update|/shoppertise/note/{title}|passing the **title** in a string format|Update note such as title, content or tags|Required|
 |DELETE|Delete|/shoppertise/remove/{title}|passing the **title** in a string format|Remove note|Required|
 |GET|Read|/shoppertise/status/| -|Get the app status|-|
 
