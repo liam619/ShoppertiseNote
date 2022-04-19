@@ -2,7 +2,7 @@
 Shoppertise Note simple Restful API
 
 ### Project start
-1. Install mongodb and execute the command in mongosh from the file.
+1. Install mongodb and execute the command in mongosh from the file to create the database and collection.
 ```
 src/main/resources/db_init
 ```
